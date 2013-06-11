@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="topcoat/css/topcoat-mobile-dark.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+<script id="home-tpl" type="text/x-handlebars-template">
+    <div class="topcoat-navigation-bar">
+        <div class="topcoat-navigation-bar__item center full">
+            <h1 class="topcoat-navigation-bar__title">Employee Directory</h1>
+        </div>
+    </div>
+    <div class="search-bar">
+        <input type="search" placeholder="search" class="topcoat-search-input search-key" style="width:100%;">
+    </div>
+    <div class="topcoat-list__container scroller" style="top:138px;">
+        <ul class='employee-list list topcoat-list'></ul>
+    </div>
+</script>
+
+<script id="employee-li-tpl" type="text/x-handlebars-template">
+    {{#.}}
+    <li class="topcoat-list__item"><a href="#employees/{{this.id}}">{{this.firstName}} {{this.lastName}}<br/>{{this.title}}</a></li>
+    {{/.}}
+</script>
+
+<script id="employee-tpl" type="text/x-handlebars-template">
+    <div class="topcoat-navigation-bar">
+        <div class="topcoat-navigation-bar__item left quarter">
+            <a class="topcoat-icon-button--quiet back-button" href="#">
+              <span class="topcoat-icon topcoat-icon--back"></span>
+            </a>
+        </div>
+        <div class="topcoat-navigation-bar__item center half">
+            <h1 class="topcoat-navigation-bar__title">Employee</h1>
+        </div>
+    </div>
+    <div class='details'>
+        <img class='employee-image' src='pics/{{firstName}}_{{lastName}}.jpg'/>
+        <h1>{{firstName}} {{lastName}}</h1>
+        <h2>{{title}}</h2>
+        <h2>{{city}}</h2>
+        <span class="location"></span>
+        <div class="topcoat-list__container scroller">
+            <ul class="topcoat-list list actions">
+                <li class="topcoat-list__item"><a href="tel:{{officePhone}}"><p>Call Office</p><p>{{officePhone}}</p><div class="action-icon icon-call"></div></a></li>
+                <li class="topcoat-list__item"><a href="tel:{{cellPhone}}"><p>Call Cell</p><p>{{cellPhone}}</p><div class="action-icon icon-call"></div></a></li>
+                <li class="topcoat-list__item"><a href="sms:{{cellPhone}}"><p>SMS</p><p>{{cellPhone}}</p><div class="action-icon icon-sms"></div></a></li>
+                <li class="topcoat-list__item"><a href="mailto:{{email}}"><p>Email</p><p>{{email}}</p><div class="action-icon icon-mail"></div></a></li>
+            </ul>
+        </div>
+    </div>
+</script>
+
+<script src="phonegap.js"></script>
+<script src="lib/jquery-1.9.1.min.js"></script>
+<script src="lib/handlebars.js"></script>
+<script src="js/adapters/memory-adapter.js"></script>
+<script src="js/HomeView.js"></script>
+<script src="js/EmployeeView.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
